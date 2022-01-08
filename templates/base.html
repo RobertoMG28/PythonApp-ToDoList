@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App para Lista de Tareas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+<body style="background-color:rgb(221, 209, 188);">
+    <div style="margin-top: 50px;" class="ui container">
+    <h1 class="ui center aligned header">App de Lista de Tareas</h1>
+    <br>
+    <div class="ui segment" style="background-color:rgb(231, 227, 219);">
+    <p>Aquí, se pueden <b>añadir</b> y <b>eliminar</b> distintas tareas. </p>
+    <p>Además, se puede <b>interactuar</b> con las mismas según el interfaz definido. </p>
+    </div>
+    <br>
+    <form class="ui form" action = "/add" method="post">
+        <div class="field">
+            <label for="title">Tarea: </label>
+            <input type = "text" name = "title" placeholder = "Introduce información" style="background-color:rgb(231, 227, 219);">
+            <button class="ui blue button"type = "submit">Añadir</button>
+
+        </div>
+
+    </form>
+    
+
+    {% for tarea in todo_list %}
+    <div class="ui segment" style="background-color:rgb(231, 227, 219);">
+        <p class = "ui big header"> {{ tarea.title }} </p>
+
+        {% if tarea.complete == False %}
+            <span class="ui gray label" style="background-color:white;">No Completada</span>
+
+        {% else %}
+            <span class="ui green label" style="background-color:white;">Completada</span>
+        {% endif %}
+
+        <a class="ui blue button" href="/update/{{ tarea.id }}">Actualizar</a>
+        <a class="ui red button" href="/delete/{{ tarea.id }}">Eliminar</a>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
