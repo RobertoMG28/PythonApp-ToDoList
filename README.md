@@ -1,2 +1,2 @@
-# Aplicación de Lista de Tareas
-Es una aplicación web desarrollada con Flask que nos permite manipular una lista de tareas.
+# PythonApp-ToDoList
+This is a simple web application using Flask that allows you to create task lists. Thanks to a video from "Python Engineer" (https://www.youtube.com/watch?v=yKHJsLUENl0), I have built this app successfully.
